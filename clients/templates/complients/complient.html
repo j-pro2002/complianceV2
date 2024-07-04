@@ -1,0 +1,356 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Stack admin is super flexible, powerful, clean & modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Complaint Orange Rdc</title>
+    <link rel="apple-touch-icon" href="{% static 'app-assets/images/ico/apple-icon-120.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'app-assets/images/ico/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/vendors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/tables/datatable/datatables.min.css' %}">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/bootstrap-extended.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/colors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/components.min.css' %}">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/core/menu/menu-types/vertical-menu-modern.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/core/colors/palette-gradient.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/page-users.min.css' %}">
+
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+    <!-- END: Custom CSS-->
+
+  </head>
+  <!-- END: Head-->
+
+  <!-- BEGIN: Body-->
+  <body class="">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
+      <div class="navbar-wrapper">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav flex-row">
+            <li class="nav-item mobile-menu d-lg-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="feather icon-menu font-large-1"></i></a></li>
+            <li class="nav-item mr-auto">
+                <h2 class="brand-text mt-1" style="color:rgb(255, 165, 0)">Orange RDC</h2></li>
+
+          </ul>
+        </div>
+        <div class="navbar-container content">
+          <div class="collapse navbar-collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav float-right mr-2 ">
+              <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm6-4V8c0-3.243-1.964-6-5-6s-5 2.757-5 6v4l-2 2v1h14v-1l-2-2z"/>
+                <path fill-rule="evenodd" d="M8 1.5A2.5 2.5 0 0 0 5.5 4 5.5 5.5 0 0 0 0 9.5v3.792l1.207 1.207a1 1 0 0 0 1.414 0L4 12.207V9.5a4.5 4.5 0 0 1 9 0v2.707l1.293 1.293a1 1 0 0 0 1.414 0L16 13.292V9.5A5.5 5.5 0 0 0 8 1.5zM7 15h2v1H7v-1z"/>
+              </svg>
+              <span class="badge badge-pill badge-danger badge-up">5</span></a>
+                <!--ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                  <li class="dropdown-menu-header">
+                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span><span class="notification-tag badge badge-danger float-right m-0">5 New</span></h6>
+                  </li>
+                  <li class="scrollable-container media-list"><a href="javascript:void(0)">
+                      <div class="media">
+                        <div class="media-left align-self-center"><i class="feather icon-plus-square icon-bg-circle bg-cyan"></i></div>
+                        <div class="media-body">
+                          <h6 class="media-heading">You have new order!</h6>
+                          <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p><small>
+                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time></small>
+                        </div>
+                      </div></a><a href="javascript:void(0)">
+                      <div class="media">
+                        <div class="media-left align-self-center"><i class="feather icon-download-cloud icon-bg-circle bg-red bg-darken-1"></i></div>
+                        <div class="media-body">
+                          <h6 class="media-heading red darken-1">99% Server load</h6>
+                          <p class="notification-text font-small-3 text-muted">Aliquam tincidunt mauris eu risus.</p><small>
+                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Five hour ago</time></small>
+                        </div>
+                      </div></a><a href="javascript:void(0)">
+                      <div class="media">
+                        <div class="media-left align-self-center"><i class="feather icon-alert-triangle icon-bg-circle bg-yellow bg-darken-3"></i></div>
+                        <div class="media-body">
+                          <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
+                          <p class="notification-text font-small-3 text-muted">Vestibulum auctor dapibus neque.</p><small>
+                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time></small>
+                        </div>
+                      </div></a><a href="javascript:void(0)">
+                      <div class="media">
+                        <div class="media-left align-self-center"><i class="feather icon-check-circle icon-bg-circle bg-cyan"></i></div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Complete the task</h6><small>
+                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last week</time></small>
+                        </div>
+                      </div></a><a href="javascript:void(0)">
+                      <div class="media">
+                        <div class="media-left align-self-center"><i class="feather icon-file icon-bg-circle bg-teal"></i></div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Generate monthly report</h6><small>
+                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last month</time></small>
+                        </div>
+                      </div></a></li>
+                  <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+                </ul-->
+              </li>
+              <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                  <div class="avatar avatar-onlin" style="color:black"> </div><span class="user-name">Hello, {{ request.user.fullname }}</span></a>
+                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{% url 'profile' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.5-1a5.5 5.5 0 0 0-4-4.978V2.5a2.5 2.5 0 0 1 2.5-2.5h.5a2.5 2.5 0 0 1 2.5 2.5v.522a5.5 5.5 0 0 0-4 4.956z"/>
+                </svg>
+                 Mon profil</a>
+                  <div class="dropdown-divider"></div><a class="dropdown-item" href="{% url 'logout' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M5.5 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-4a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5zM11 3a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0 0 1h8a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M10.354 8.354a.5.5 0 0 0 0-.708l-2-2a.5.5 0 0 0-.708.708L8.793 7.5H3.5a.5.5 0 0 0 0 1h5.293l-1.147 1.146a.5.5 0 0 0 .708.708l2-2z"/>
+                  </svg>
+                   Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- END: Header-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content mt-5 mt-5 mt-5">
+      <div class="content-overlay"></div>
+      <div class="content-wrapper">
+
+      <!--/ Analytics spakline & chartjs  -->
+      {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+          </div>
+      {% endfor %}
+      {% endif %}
+      <!--stats-->
+      <div class="row">
+          <div class="col-xl-3 col-lg-6 col-12">
+              <div class="card">
+                  <div class="card-content">
+                      <div class="card-body">
+                          <div class="media">
+                              <div class="media-body text-left w-100">
+                                  <h3 class="primary">78%</h3>
+                                  <span>Membre inscrit</span>
+                              </div>
+                              <div class="media-right media-middle">
+                                  <i class="icon-user-follow primary font-large-2 float-right"></i>
+                              </div>
+                          </div>
+                          <div class="progress progress-sm mt-1 mb-0">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+              <div class="card">
+                  <div class="card-content">
+                      <div class="card-body">
+                          <div class="media">
+                              <div class="media-body text-left w-100">
+                                  <h3 class="danger"> {{  total_complaints }}</h3>
+                                  <span>Plaintes déposé</span>
+                              </div>
+                              <div class="media-right media-middle">
+                                  <i class="icon-social-dropbox danger font-large-2 float-right"></i>
+                              </div>                        
+                          </div>
+                          <div class="progress progress-sm mt-1 mb-0">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+              <div class="card">
+                  <div class="card-content">
+                      <div class="card-body">
+                          <div class="media">
+                              <div class="media-body text-left w-100">
+                                  <h3 class="success">{{ closed_complaints }}</h3>
+                                  <span>Plainte clos</span>
+                              </div>
+                              <div class="media-right media-middle">
+                                  <i class="icon-layers success font-large-2 float-right"></i>
+                              </div>                        
+                          </div>
+                          <div class="progress progress-sm mt-1 mb-0">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-12">
+              <div class="card">
+                  <div class="card-content">
+                      <div class="card-body">
+                          <div class="media">
+                              <div class="media-body text-left w-100">
+                                  <h3 class="warning">{{ pending_complaints }}</h3>
+                                  <span>Plainte en attente </span>
+                              </div>
+                              <div class="media-right media-middle">
+                                  <i class="icon-globe warning font-large-2 float-right"></i>
+                              </div>                        
+                          </div>
+                          <div class="progress progress-sm mt-1 mb-0">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <div class="content-header row">
+        </div>
+        <div class="content-body"><!-- users list start -->
+        <section class="users-list-wrapper">
+            <div class="users-list-filter px-1">
+            </div>
+            <div class="users-list-table">
+              <div class="card">
+                  <div class="card-content">
+                      <div class="card-body">
+                          <!-- datatable start -->
+                          <div class="mb-3">
+                            <button class="btn btn-secondary filter-btn" data-status="all">Tous</button>
+                            <button class="btn btn-warning filter-btn" data-status="pending">En attente</button>
+                            <button class="btn btn-success filter-btn" data-status="closed">Clôturées</button>
+                        </div>
+                        
+                          <div class="table-responsive">
+                            <table id="users-list-datatable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Sujet</th>                                  
+                                        <th>Date de Création</th>
+                                        <th>Date de Mise à Jour</th>
+                                        <th>Statut</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if complaints %}
+                                    {% for complaint in complaints %}
+                                    <tr class="{% if complaint.status == 'pending' %}table-warning{% elif complaint.status == 'closed' %}table-success{% endif %}">
+                                        <td>{{ complaint.complainant_name }}</td>
+                                        <td>{{ complaint.subject }}</td>
+                                        <td>{{ complaint.date_created }}</td>
+                                        <td>{{ complaint.date_updated }}</td>
+                                        <td>{{ complaint.status }}</td>
+                                        <td>
+                                          <div class="btn-group" role="group" aria-label="Actions">
+                                            <a href="{% url 'complaint_detail' slug=complaint.slug %}" class="btn btn-primary">Détails</a>
+                                            <form action="{% url 'delete_complaint' slug=complaint.slug %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger ml-1" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette plainte ?');">Delete</button>
+                                            </form>
+                                        </div>
+                                          
+                                            <!-- Ajoutez d'autres actions au besoin -->
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <tr>
+                                        <td colspan="6">Aucune plainte trouvée.</td>
+                                    </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div><!-- datatable ends -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          
+        </section>
+<!-- users list ends -->
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->
+
+
+   
+
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light navbar-border bg-dark">
+      <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
+          <span class="float-md-left d-block d-md-inline-block mx-auto"> <!-- Ajout de mx-auto pour centrer -->
+              Copyright &copy; 2024 <a class="text-bold-800 grey darken-2" style="color:rgb(255, 165, 0)" href="" target="_blank">Orange RDC</a>
+          </span>
+      </p>
+  </footer>
+  
+    <!-- END: Footer-->
+
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="{% static 'app-assets/vendors/js/vendors.min.js' %}"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="{% static 'app-assets/vendors/js/tables/datatable/datatables.min.js' %}"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="{% static 'app-assets/js/core/app-menu.min.js' %}"></script>
+    <script src="{% static 'app-assets/js/core/app.min.js' %}"></script>
+    <script src="{% static 'app-assets/js/scripts/customizer.min.js' %}"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="{% static 'app-assets/js/scripts/pages/page-users.min.js' %}"></script>
+<script>
+  $(document).ready(function() {
+    $('.filter-btn').on('click', function() {
+        var status = $(this).data('status');
+        console.log("Filtrage par statut :", status);
+
+        $('#users-list-datatable tbody tr').each(function() {
+            var rowStatus = $(this).find('td:nth-child(5)').text().trim(); // Obtient le statut depuis la colonne 5 (index 4)
+            console.log("Statut de la ligne :", rowStatus);
+
+            if (status === 'all' || rowStatus === status) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+});
+
+</script>
+
+    <!-- END: Page JS-->
+</body>
+</html>

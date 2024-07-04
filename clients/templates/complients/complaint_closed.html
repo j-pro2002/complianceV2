@@ -1,0 +1,31 @@
+<!-- complaints/templates/complaints/emails/complaint_closed.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plainte clôturée</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h2>Plainte clôturée</h2>
+            </div>
+            <div class="card-body">
+                <p>Bonjour <strong>{{ username }}</strong>,</p>
+                <p>Une plainte a été clôturée avec un procès-verbal.</p>
+                <p><strong>Deposé par :</strong> {{ complaint.complainant_name }}</p>
+                <p><strong>Sujet :</strong> {{ complaint.subject }}</p>
+                <p><strong>Description :</strong> {{ complaint.description }}</p>
+                <p>Veuillez vous connecter à votre compte pour consulter les détails.</p>
+                <p>
+                    <a href="{{ request.build_absolute_uri }}" class="btn btn-success">Consulter les détails</a>
+                </p>
+                <p>Cordialement,<br>Orange RDC</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

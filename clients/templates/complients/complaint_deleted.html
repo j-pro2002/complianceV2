@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plainte supprimée</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h2>Plainte supprimée</h2>
+            </div>
+            <div class="card-body">
+                <p>Bonjour <strong>{{ username }}</strong>,</p>
+                <p>Une plainte a été supprimée.</p>
+                <p><strong>Sujet :</strong> {{ complaint_details.subject }}</p>
+                <p><strong>Description :</strong> {{ complaint_details.description }}</p>
+                <p>Veuillez vous connecter à votre compte pour plus de détails.</p>
+                <p>Cordialement,<br>Orange RDC</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
