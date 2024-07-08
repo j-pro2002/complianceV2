@@ -110,7 +110,6 @@ def utilisateur_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        print(f"{username} --- { password} ")
         phone_number, email = authenticate_via_ldap(username, password)
         print(f'{phone_number} --- {email}')
 
