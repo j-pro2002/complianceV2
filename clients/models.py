@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
+from django.utils import timezone
+from user.models import Utilisateur
 
 class Complaint(models.Model):
     STATUS_CHOICES = (
@@ -39,7 +41,6 @@ class Complaint(models.Model):
     date_updated = models.DateTimeField(auto_now=True, verbose_name="Date de mise à jour")
     
     # Fichiers
-    report_file = models.FileField(upload_to='reports/', blank=True, null=True, verbose_name='Procès-verbal')
     proof_file = models.FileField(upload_to='proofs/', blank=True, null=True, verbose_name='Fichier de preuve')
     
     # Moyen de contact
@@ -67,3 +68,37 @@ class Complaint(models.Model):
     
     def __str__(self):
         return f"Plainte de {self.complainant_name} - {self.subject}"
+
+
+
+
+
+class Recommendation(models.Model):
+    complaint = models.ForeignKey('Complaint', on_delete=models.CASCADE, related_name='recommendations')
+    file = models.FileField(upload_to='recommendations/', verbose_name='Fichier de recommandation')
+    description = models.TextField(verbose_name="Description", blank=True, null=True)
+    date_uploaded = models.DateTimeField(auto_now_add=True, verbose_name="Date de téléchargement")
+
+    def __str__(self):
+        return f"Recommandation pour la plainte {self.complaint.subject}"
+
+
+class Report(models.Model):
+    complaint = models.ForeignKey('Complaint', on_delete=models.CASCADE, related_name='reports')
+    file = models.FileField(upload_to='reports/', verbose_name='Fichier de procès-verbal')
+    description = models.TextField(verbose_name="Description", blank=True, null=True)
+    date_uploaded = models.DateTimeField(auto_now_add=True, verbose_name="Date de téléchargement")
+
+    def __str__(self):
+        return f"Procès-verbal pour la plainte {self.complaint.subject}"
+
+
+class Notification(models.Model):
+    action = models.CharField(max_length=255)
+    complaint_name = models.CharField(max_length=255)
+    message = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    is_read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'Notification for {self.complaint_name} - {self.message[:20]}'

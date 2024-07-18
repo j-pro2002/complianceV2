@@ -248,18 +248,63 @@
                   <hr>
 
                   
-                <div class="row">
+                  <div class="row">
                     <div class="col-sm-3">
-                    <h6 class="mb-0">Fichier de preuve  :</h6>
+                        <h6 class="mb-0">Fichier de preuve :</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    {% if complaint.proof_file %}
-                    <p><a href="{{ complaint.proof_file.url }}" class="btn btn-outline-info" download>Télécharger le Fichier de Preuve</a></p>
-                    {% else %}
-                    <p>Aucun fichier de preuve fourni</p>
-                    {% endif %}
+                        {% if complaint.proof_file %}
+                            <p><a href="{{ complaint.proof_file.url }}" class="btn btn-outline-info" download>Télécharger le Fichier de Preuve</a></p>
+                        {% else %}
+                            <p>Aucun fichier de preuve fourni</p>
+                        {% endif %}
                     </div>
                 </div>
+                <hr>
+                
+                
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0">Recommandations :</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary mb-5">
+                      <h6>Réclammation disponible</h6>                        
+                        {% if recommendations %}
+                            <ul>
+                                {% for recommendation in recommendations %}
+                                    <li>
+                                        <p>Description : {{ recommendation.description }}</p>
+                                        <p>Date de téléchargement: {{ recommendation.date_uploaded }}</p>
+                                        <p><a href="{{ recommendation.file.url }}" class="btn btn-outline-info" download>Télécharger Recommandation</a></p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>Aucune recommandation disponible</p>
+                        {% endif %}
+                        {% if user.role == 'admin' %}
+                        {% if complaint.status != 'closed' %}
+                            <form action="{% url 'update_complaint' slug=complaint.slug %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="recommendation_file">Upload file (PDF):</label>
+                                    <input type="file" class="form-control-file" id="recommendation_file" name="recommendation_file">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recommendation_description">Description :</label>
+                                    <textarea class="form-control" id="recommendation_description" name="recommendation_description" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Ajouter Recommandation</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+    
+                    </div>
+
+                 
+                </div>
+                
+              
                 <hr>
                 <div class="row">
                   <div class="col-sm-3">
@@ -267,31 +312,54 @@
                   </div>
                   <div class="col-sm-9 text-secondary">
                     {% if user.role == 'admin' %}
-                          {% if complaint.report_file %}
-                              <p><a href="{{ complaint.report_file.url }}" class="btn btn-outline-info" download>Télécharger le Procès-Verbal</a></p>
-                          {% else %}
-                              <p>Aucun procès-verbal disponible</p>
-                          {% endif %}
-                          <form action="{% url 'update_complaint' slug=complaint.slug %}" method="post" enctype="multipart/form-data">
-                              {% csrf_token %}
-                              <div class="form-group">
-                                  <label for="report_file">Upload file (PDF):</label>
-                                  <input type="file" class="form-control-file" id="report_file" name="report_file">
-                              </div>
-                              <button type="submit" class="btn btn-primary mt-3">Mettre à Jour</button>
-                          </form>
-                      {% else %}
-                          {% if complaint.report_file %}
-                              <p><a href="{{ complaint.report_file.url }}" class="btn btn-outline-info" download>Télécharger le Procès-Verbal</a></p>
-                          {% else %}
-                              <p>Aucun procès-verbal disponible</p>
-                          {% endif %}
-                      {% endif %}
-                  </div>
+                        {% if reports %}
+                            <ul>
+                                {% for report in reports %}
+                                    <li>
+                                        <p>Description: {{ report.description }}</p>
+                                        <p>Date de téléchargement: {{ report.date_uploaded }}</p>
+                                        <p><a href="{{ report.file.url }}" class="btn btn-outline-info" download>Télécharger le Procès-Verbal</a></p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>Aucun procès-verbal disponible ( <span style="color:red"> le upload du proces verbale Passe
+                              l'enquete en status clos
+                            </span>)</p>
+                        {% endif %}
+                        
+                        {% if complaint.status != 'closed' %}
+                            <form action="{% url 'update_complaint' slug=complaint.slug %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="report_file">Upload file (PDF):</label>
+                                    <input type="file" class="form-control-file" id="report_file" name="report_file">
+                                </div>
+                                <div class="form-group">
+                                    <label for="report_description">Description:</label>
+                                    <textarea class="form-control" id="report_description" name="report_description" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Mettre à Jour</button>
+                            </form>
+                        {% endif %}
+                    {% else %}
+                        {% if reports %}
+                            <ul>
+                                {% for report in reports %}
+                                    <li>
+                                        <p>Description: {{ report.description }}</p>
+                                        <p>Date de téléchargement: {{ report.date_uploaded }}</p>
+                                        <p><a href="{{ report.file.url }}" class="btn btn-outline-info" download>Télécharger le Procès-Verbal</a></p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>Aucun procès-verbal disponible</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                
               </div>
-              
-                <hr>
-
                 </div>
               </div>
             </div>

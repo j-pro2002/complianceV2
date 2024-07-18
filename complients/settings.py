@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,6 +30,14 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost','10.25.3.199']
 
 
 
+
+
+
+
+
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,10 +50,12 @@ INSTALLED_APPS = [
     'user',
     'clients',
     'drf_yasg',
+    'corsheaders',
 
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -96,7 +107,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'junembuyi@gmail.com'  # Remplace par ton adresse Gmail
-EMAIL_HOST_PASSWORD = 'suwuhofgulrnkuki'  # Remplace par le mot de passe de ton compte Gmail
+EMAIL_HOST_PASSWORD = 'gnrtrimxcsyqllpg'  # Remplace par le mot de passe de ton compte Gmail
 DEFAULT_FROM_EMAIL = 'Orange RDC <no-reply@orange-rdc.com>'  # Remplace par ton adresse Gmail
 
 # Password validation
@@ -147,3 +158,29 @@ LOGIN_URL = 'login'
 
  # Remplace par ton adresse Gmail
 
+# settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000',  # Ajoutez d'autres URLs autorisées si nécessaire avec leur schéma et netloc
+]
+
+# Autoriser toutes les méthodes et les headers nécessaires
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_HEADERS = [
+    'Accept',
+    'Accept-Encoding',
+    'Authorization',
+    'Content-Type',
+    'Origin',
+    'User-Agent',
+    'X-CSRFToken',
+]

@@ -8,22 +8,35 @@ import requests
 import xml.etree.ElementTree as ET
 from django.utils import timezone
 from .models import Utilisateur
-
+from .decorators import *
 # Fonction pour envoyer un OTP via l'Api orange
+
 def send_otp_via_api(destination):
     url = 'http://10.25.3.81:5002/api/generate'
     headers = {
         'accept': 'application/json',
         'content-type': 'application/json',
     }
-    payload = {
-        "reference": destination,
-        "origin": "compliance",
-        "otpOveroutTime": 300000,
-        "customMessage": "Dear customer, {{ otpCode }} is your OTP code. Go back to our platform and enter it to log in.",
-        "senderName": "Orange Compliances",
-        "ignoreOrangeNumbers": False
-    }
+    
+    if '@orange.com' in destination:
+        payload = {
+            "reference": destination,
+            "origin": "compliance",
+            "otpOveroutTime": 300000,
+            "customMessage": "Dear customer, {{ otpCode }} is your OTP code. Go back to our platform and enter it to log in.",
+            "senderName": "orange@orange.com",
+            "ignoreOrangeNumbers": False
+        }
+    else:
+        payload = {
+            "reference": destination,
+            "origin": "compliance",
+            "otpOveroutTime": 300000,
+            "customMessage": "Dear customer, {{ otpCode }} is your OTP code. Go back to our platform and enter it to log in.",
+            "senderName": "Orange Compliances",
+            "ignoreOrangeNumbers": False
+        }
+
     
     try:
         print(f" send OTP  payload {payload}")
@@ -35,6 +48,7 @@ def send_otp_via_api(destination):
         raise
 
 # Fonction pour vérifier l'OTP via l'Api orange
+
 def check_otp_via_api(reference, input_otp):
     url = 'http://10.25.3.81:5002/api/check'
     headers = {
@@ -105,7 +119,10 @@ def authenticate_via_ldap(username, password):
         return None, None
 
 # Vue pour la connexion de l'utilisateur
+
 def utilisateur_login(request):
+
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -150,6 +167,7 @@ def utilisateur_login(request):
     return render(request, 'login.html')
 
 # Vue pour vérifier l'OTP
+
 def verify_otp(request):
     if request.method == 'POST':
         input_otp = request.POST.get('otp')
@@ -187,6 +205,7 @@ def verify_otp(request):
     return render(request, 'two_step.html')
 
 # Vue pour déconnecter l'utilisateur
+
 def utilisateur_logout(request):
     logout(request)
     messages.success(request, 'Vous êtes maintenant déconnecté.')
