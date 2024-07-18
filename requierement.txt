@@ -18,7 +18,6 @@ click-repl==0.3.0
 colorama==0.4.6
 cryptography==42.0.8
 Django==5.0.6
-django-pyodbc-azure==2.1.0.0
 django-ssh-deployer==0.6.2
 djangorestframework==3.15.2
 drf-yasg==1.21.7
